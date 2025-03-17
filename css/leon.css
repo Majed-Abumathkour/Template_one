@@ -1,0 +1,585 @@
+/* Start Variables*/
+:root {
+    --main-color: #10cab7;
+    --secondary-color: #2c4755;
+    --section-padding: 60px;
+    --section-background: #f6f6f6;
+    --p-color: #777;
+    --p-font-size: 1.8;
+    --section-margin-top: 120px;
+}
+
+/* End Variables*/
+
+/* Start Global Rules*/
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    /* we need "Work Sans", to get it go to ipesode one of this template. add the links of it in the html*/
+    font-family: sans-serif;
+    overflow-x: hidden;
+}
+
+.parent {
+    background-color: #eee;
+}
+
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    /* so the the elements won't satrt form the edge of the screen, even if the screen is small. */
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* These medias are bootstrap 3 code */
+/* Small Screens */
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+        /* If this value is > 768 we will scrol, and this is wrong */
+    }
+}
+
+/* Medium Screens */
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+
+/* Large Screens */
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+
+/* End Global Rules*/
+
+/* Start Components */
+.special-heading {
+    font-size: 100px;
+    font-weight: 800;
+    color: #ebeced;
+    letter-spacing: -3px;
+    text-align: center;
+    margin: 0;
+
+}
+
+.special-heading+p {
+    color: #797979;
+    font-size: 20px;
+    text-align: center;
+    margin-top: -30px;
+}
+
+@media (max-width: 767px) {
+    .special-heading {
+        font-size: 60px;
+    }
+
+    .special-heading+p {
+        margin-top: -20px;
+    }
+}
+
+/* End Components */
+
+/* Start Header */
+.header {
+    padding: 20px;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header .logo {
+    width: 60px;
+}
+
+.header .links {
+    position: relative;
+}
+
+/* Icon Strart */
+.header .links .icon {
+    width: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.header .links .icon span {
+    background-color: #333;
+    margin-bottom: 5px;
+    height: 2px;
+}
+
+.header .links .icon span:first-child {
+    width: 100%;
+}
+
+.header .links .icon span:nth-child(2) {
+    width: 60%;
+    transition: 0.3s;
+}
+
+.header .links:hover .icon span:nth-child(2) {
+    width: 100%
+}
+
+.header .links .icon span:last-child {
+    width: 100%;
+}
+
+/* Icon End */
+
+/* UL Start */
+.header .links ul {
+    /* Always write these lines a the beginning of any ul */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    /*-------------------------------  */
+    background-color: #f6f6f6;
+    border-radius: 5px;
+    position: absolute;
+    right: 0;
+    top: calc(100% + 15px);
+    /* by this the ul will start directly after list (100%), and then will go down 15px */
+    min-width: 200px;
+    display: none;
+    transition: 0.3s;
+}
+
+.header .links ul::before {
+    content: "";
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent #f6f6f6 transparent;
+    position: absolute;
+    right: 5px;
+    top: -20px;
+}
+
+.header .links ul a {
+    /* Always write these lines a the beginning of any a */
+    display: block;
+    text-decoration: none;
+    /* --------------------------- */
+    padding: 15px;
+    color: #333;
+    transition: 0.3s;
+}
+
+.header .links:hover ul {
+    display: block;
+    /* When you learn JS you will do this click not hover. */
+}
+
+.header .links a:hover {
+    padding-left: 25px;
+}
+
+.header .links li:not(:last-child) a {
+    border-bottom: 1px solid #ddd;
+}
+
+/* UL End */
+/* End Header */
+
+/* Strat landing */
+.landing {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    height: calc(100vh - 64px);
+    background-image: url(../images/mountain-background.jpg);
+    background-size: cover;
+    text-align: center;
+}
+
+.landing .container {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    width: 100%;
+}
+
+.landing h2 {
+    padding: 0 15px;
+    margin: 0;
+    font-weight: bold;
+    font-size: 50px;
+    text-shadow: 4px 4px 4px black;
+    color: var(--main-color);
+    margin-bottom: 20px;
+}
+
+.landing p {
+    color: white;
+    padding: 0 15px;
+    margin: 0;
+    width: 375px;
+    font-size: 19px;
+    line-height: 1.8;
+    /* text-shadow: 1px 0px 0px black; */
+
+}
+
+/* End landing */
+
+/* Strat Features */
+.features {
+    padding: var(--section-padding) 0;
+    background-color: var(--section-background);
+}
+
+.features .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    /* This Line is Great */
+    gap: 20px;
+    text-align: center;
+}
+
+.features .feat i {
+    color: var(--main-color);
+}
+
+.features .feat h3 {
+    font-weight: 800;
+    margin: 30px 0;
+    /* Extra bold = 800 */
+}
+
+.features .feat p {
+    color: var(--p-color);
+    line-height: 1.8;
+    /* These things like line-height */
+    font-size: var(--p-font-size);
+    line-break: loose;
+}
+
+/* End Features */
+
+/* Strat Services */
+
+.services {
+    padding: var(--section-padding) 0;
+}
+
+.services-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: var(--section-margin-top);
+}
+
+.services-content .col {
+    display: grid;
+    grid-template-rows: auto auto;
+    gap: 15px;
+    align-items: center;
+}
+
+.services .col .sev {
+    display: flex;
+    /* margin-bottom: 40px; */
+}
+
+@media (max-width: 767px) {
+    .services .col .sev {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+.col .sev i {
+    color: var(--main-color);
+    flex-basis: 60px;
+}
+
+.services .text {
+    flex: 1;
+    /* means the flex-grow: 1, which means that the text will grow to fit the space left. */
+}
+
+.sev .text h3 {
+    margin: 0 0 20px;
+}
+
+.sev .text p {
+    color: var(--p-color);
+    font-weight: 300;
+    line-height: 1.6;
+    font-size: var(--p-font-size);
+}
+
+.services-content .image img {
+    width: 500px;
+}
+
+@media (min-width: 1200px) {
+    .services-content .image img {
+        margin-top: -100px;
+    }
+
+    .services .col .sev-bottom {
+        margin-top: -250px;
+    }
+
+    .services .col:not(:last-of-type) {
+        margin-top: -100px;
+    }
+}
+
+@media (max-width: 1199px) {
+    .services-content .image {
+        display: none;
+    }
+}
+
+/* End Services */
+
+/* Start portfolio */
+
+.portfolio {
+    padding: var(--section-padding) 0;
+    background-color: var(--section-background);
+}
+
+.portfolio-content {
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    margin-top: var(--section-margin-top);
+}
+
+.portfolio-content .card {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 767px) {
+    .portfolio-content .card {
+        text-align: center;
+    }
+}
+
+.portfolio-content .card img {
+    width: 100%;
+    height: 200px;
+    border-radius: 4px;
+}
+
+.portfolio-content .card .info {
+    padding: 20px;
+
+}
+
+.portfolio-content .card h3 {
+    margin: 0 0 15px;
+}
+
+.portfolio-content .card p {
+    margin: 0;
+    color: var(--p-color);
+    line-height: 1.6;
+    font-size: var(--p-font-size);
+}
+
+/* End portfolio */
+
+/* Start About */
+
+.about {
+    padding-top: var(--section-padding);
+    padding-bottom: calc(var(--section-padding) + 60px)
+}
+
+.about-content {
+    margin-top: var(--section-margin-top);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+@media(max-width: 991px) {
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* Start Image */
+.about-content .image {
+    position: relative;
+    width: 300px;
+    height: 375px;
+}
+
+@media(max-width: 991px) {
+    .about-content .image {
+        margin: 0 auto 60px;
+    }
+}
+
+.about-content .image::before {
+    content: '';
+    position: absolute;
+    background-color: var(--main-color);
+    width: 100px;
+    height: calc(100% + 50px);
+    bottom: -25px;
+    left: -25px;
+    z-index: -1;
+}
+
+.about-content .image::after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: calc(100% - 75px);
+    border-left: 75px solid;
+    border-bottom: 50px solid;
+    border-color: var(--main-color);
+    right: -125px;
+    top: -25px;
+    z-index: -1;
+}
+
+@media(max-width: 991px) {
+
+    .about-content .image::before,
+    .about-content .image::after {
+        display: none;
+    }
+}
+
+.about-content .image img {
+    max-width: 100%;
+    height: 100%;
+}
+
+/* End Image */
+
+.about-content .text {
+    flex-basis: calc(100% - 500px);
+}
+
+.about-content .text p:first-of-type {
+    font-weight: bold;
+    line-height: 2;
+    font-size: var(--p-font-size);
+    margin-bottom: 50px;
+}
+
+
+.about-content .text hr {
+    width: 50%;
+    display: inline-block;
+    border-color: var(--main-color);
+}
+
+
+.about-content .text p:last-of-type {
+    /* font-weight: bold; */
+    line-height: 2;
+    font-size: var(--p-font-size);
+    color: var(--p-color);
+}
+
+/* End About */
+
+/* Start Contact */
+
+.contact {
+    padding: var(--section-padding) 0;
+    background-color: var(--section-background);
+    text-align: center;
+}
+
+.contact .info {
+    padding-top: var(--section-margin-top);
+    padding-bottom: calc(var(--section-margin-top) - 30px);
+
+}
+
+.contact .info .label {
+    margin: 0;
+    color: var(--secondary-color);
+    font-size: 35px;
+    font-weight: 800;
+    letter-spacing: -2px;
+    margin-bottom: 20px;
+}
+
+.contact .info .mail-link {
+    display: block;
+    text-decoration: none;
+    color: var(--main-color);
+    font-size: 35px;
+    font-weight: 800;
+    letter-spacing: -2px;
+    margin-bottom: 25px;
+}
+
+@media (max-width: 767px) {
+
+    .contact .info .label,
+    .contact .info .mail-link {
+        font-size: 25px;
+    }
+}
+
+.contact .info .social {
+    display: flex;
+    justify-content: center;
+}
+
+.contact .info .social p {
+    margin: 0;
+    font-size: 16px;
+}
+
+.contact .info .social .link {
+    text-decoration: none;
+}
+
+.contact .info .social i {
+    margin-left: 10px;
+    color: var(--secondary-color);
+}
+
+/* End Contact */
+
+/* Start Footer */
+footer {  
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    background-color: var(--secondary-color);
+    padding: 15px 10px;
+}
+
+footer span {
+    color: var(--main-color);
+    font-weight: bold;
+}
+/* End Footer */
